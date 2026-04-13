@@ -7,7 +7,7 @@ namespace EvgeniiMaklaev.SaveSystem
         [MenuItem("Tools/Save System/Save")]
         public static async void Save()
         {
-            // for example, create Settings there
+            // for example, create Settings here
             GameSettings gameSettings = new();
             await SaveSystem.Save();
         }

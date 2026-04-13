@@ -17,7 +17,7 @@ namespace EvgeniiMaklaev.SaveSystem
         void Awake()
         {
             if (!_fillTestData) return;
-
+            // for example
             _items = new()
             {
                 new InventoryItemData(0, "Wood", 4),
