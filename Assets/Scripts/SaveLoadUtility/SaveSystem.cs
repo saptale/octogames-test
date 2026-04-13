@@ -8,7 +8,7 @@ namespace EvgeniiMaklaev.SaveSystem
     public static class SaveSystem
     {
         private static readonly string SaveFileName = "SaveFile.json";
-        private static string SaveFolder => Application.persistentDataPath;
+        private static string SaveFolder = Application.persistentDataPath;
         public static readonly string SavePath = Path.Combine(SaveFolder, SaveFileName);
 
         private static readonly JsonSerializerSettings _settings = new JsonSerializerSettings
