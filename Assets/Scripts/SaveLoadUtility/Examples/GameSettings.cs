@@ -37,7 +37,7 @@ namespace EvgeniiMaklaev.SaveSystem
             {
                 _quality = data.quality;
                 _soundVolume = data.soundVolume;
-                Debug.Log($"[GAME SETTINGS] Загружено: Quality: {_quality}, Volume: {_soundVolume}");
+                Debug.Log($"<color=green>[GAME SETTINGS] Loaded: Quality: {_quality}, Volume: {_soundVolume}</color>");
             }
         }
     }

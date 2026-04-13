@@ -39,7 +39,7 @@ namespace EvgeniiMaklaev.SaveSystem
                 _items.Clear();
                 _items.AddRange(savedItems);
                 foreach (var item in _items)
-                    Debug.Log($"[INVENTORY] Загружено: Id: {item.id}, Name: {item.name}, Amount: {item.amount}");
+                    Debug.Log($"<color=green>[INVENTORY] Loaded: Id: {item.id}, Name: {item.name}, Amount: {item.amount}</color>");
             }
         }
     }

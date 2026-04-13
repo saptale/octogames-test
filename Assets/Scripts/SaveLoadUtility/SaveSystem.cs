@@ -58,12 +58,12 @@ namespace EvgeniiMaklaev.SaveSystem
                     File.Move(tempPath, SavePath);
                 }
 
-                Debug.Log($"[SaveSystem] Успешно сохранено в {SavePath}");
+                Debug.Log($"<color=yellow>[SaveSystem] Successfully saved at {SavePath}</color>");
                 return true;
             }
             catch (Exception e)
             {
-                Debug.LogError($"[SaveSystem] Ошибка при сохранении: {e.Message}");
+                Debug.LogError($"[SaveSystem] Save Error: {e.Message}");
                 if (File.Exists(tempPath))
                 {
                     File.Delete(tempPath);
@@ -75,23 +75,23 @@ namespace EvgeniiMaklaev.SaveSystem
         {
             if (await TryLoadFile(SavePath))
             {
-                Debug.Log("[SaveSystem] Игра успешно загружена.");
+                Debug.Log("<color=yellow>[SaveSystem] Game successfully loaded.</color>");
                 return true;
             }
 
             string backupPath = SavePath + ".bak";
             if (File.Exists(backupPath))
             {
-                Debug.LogWarning("[SaveSystem] Основной файл поврежден или отсутствует. Загружаем бэкап");
+                Debug.LogWarning("[SaveSystem] Main file is missing or corrupted. Loading backup..");
                 if (await TryLoadFile(backupPath))
                 {
                     File.Copy(backupPath, SavePath, true);
-                    Debug.Log("[SaveSystem] Игра успешно загружена из бэкапа.");
+                    Debug.Log("<color=yellow>[SaveSystem] Game successfully loaded from backup.</color>");
                     return true;
                 }
             }
 
-            Debug.LogError("[SaveSystem] Не удалось загрузить ни основное сохранение, ни бэкап");
+            Debug.LogError("[SaveSystem] Cant load game from main file or backup file.");
             return false;
         }
         private static async Awaitable<bool> TryLoadFile(string path)
@@ -116,7 +116,7 @@ namespace EvgeniiMaklaev.SaveSystem
             }
             catch (Exception e)
             {
-                Debug.LogError($"[SaveSystem] Ошибка чтения файла {path}: {e.Message}");
+                Debug.LogError($"[SaveSystem] Read file error {path}: {e.Message}");
                 return false;
             }
         }

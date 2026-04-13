@@ -40,7 +40,7 @@ namespace EvgeniiMaklaev.SaveSystem
                 _health = data.health;
                 _score = data.score;
                 transform.position = new Vector3(data.px, data.py, data.pz);
-                Debug.Log($"[PLAYER] Загружено: Health: {_health}, Score: {_score}, Position: {transform.position}");
+                Debug.Log($"<color=green>[PLAYER] Loaded: Health: {_health}, Score: {_score}, Position: {transform.position}</color>");
             }
         }
     }

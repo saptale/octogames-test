@@ -15,6 +15,7 @@ namespace EvgeniiMaklaev.SaveSystem
         [MenuItem("Tools/Save System/Load")]
         public static async void Load()
         {
+            GameSettings gameSettings = new();
             await SaveSystem.Load();
         }
     }
