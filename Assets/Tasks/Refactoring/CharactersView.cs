@@ -8,8 +8,6 @@ namespace EvgeniiMaklaev.Refactoring
     public class CharactersView : MonoBehaviour, IUpdateable
     {
         public static CharactersView Instance;
-        public Action<int> OnValueUpdate;
-
         // 1. Incorrect property syntax [SerializedField] -> [SerializeField]
         // 2. Logical mistake: we need only Characters in List
         // WAS: [SerializedField] private List<Transform> _characters;
@@ -71,12 +69,16 @@ namespace EvgeniiMaklaev.Refactoring
             // 7. Dont call GetComponent<T> every update, we need cache field -> _text
             // 8. We can delete text property
             // WAS: gameObject.GetComponent<Text>().text = text;
+            // 9. Incorrect operation: (_characters.Count / totalValue) --> (totalValue / _characters.Count)
+            // 10. Division by zero -> avgValue
+            // WAS: totalValue / _characters.Count
+            float avgValue = _characters.Count > 0 ? totalValue / _characters.Count : 0f;
+
             Text = string.Format(
                 "<color=green>Characters: {0}</color>\n<color=yellow>Avg value: {1}</color>",
                 _characters.Count,
-                _characters.Count / totalValue
+                avgValue
             );
-            Debug.Log(Text);
         }
     }
 }

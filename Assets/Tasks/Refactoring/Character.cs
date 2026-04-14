@@ -5,11 +5,11 @@ namespace EvgeniiMaklaev.Refactoring
     public class Character : MonoBehaviour
     {
         public float Value = 0;
-        void Awake()
+        void OnEnable()
         {
             CharactersView.Instance.Register(this);
         }
-        void OnDestroy()
+        void OnDisable()
         {
             CharactersView.Instance.Unregister(this);
         }
