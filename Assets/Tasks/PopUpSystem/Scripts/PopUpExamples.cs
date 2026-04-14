@@ -7,7 +7,7 @@ namespace EvgeniiMaklaev.PopUp
     [CustomEditor(typeof(PopUpExamples))]
     public class PopUpExamplesEditor : Editor
     {
-        public override async void OnInspectorGUI()
+        public override void OnInspectorGUI()
         {
             base.OnInspectorGUI();
 
@@ -18,7 +18,7 @@ namespace EvgeniiMaklaev.PopUp
             // basic notification
             if (GUILayout.Button("1. Inventory is full"))
             {
-                await PopUpController.Instance.ShowMessagePopUp(
+                _ = PopUpController.Instance.ShowMessagePopUp(
                     message: "Your backpack is full. Free some space.",
                     header: "Warning!",
                     buttons: new List<PopUpButtonConfig>()
@@ -35,7 +35,7 @@ namespace EvgeniiMaklaev.PopUp
             // boss fight (like dnd or like that)
             if (GUILayout.Button("2. Boss Fight"))
             {
-                await PopUpController.Instance.ShowMessagePopUp(
+                _ = PopUpController.Instance.ShowMessagePopUp(
                     message: "You see a dragon. Are you ready?",
                     header: "Point of No Return",
                     buttons: new List<PopUpButtonConfig>()
@@ -57,7 +57,7 @@ namespace EvgeniiMaklaev.PopUp
             // story choice
             if (GUILayout.Button("3. Dungeon"))
             {
-                await PopUpController.Instance.ShowMessagePopUp(
+                _ = PopUpController.Instance.ShowMessagePopUp(
                     message: "Which way will you go?",
                     header: "Choose your path",
                     buttons: new List<PopUpButtonConfig>()
@@ -81,11 +81,10 @@ namespace EvgeniiMaklaev.PopUp
                 );
             }
 
-
             // shop example
             if (GUILayout.Button("4. Merchants Shop"))
             {
-                await PopUpController.Instance.ShowMessagePopUp(
+                _ = PopUpController.Instance.ShowMessagePopUp(
                     message: "Greetings, traveler!",
                     header: "Shop",
                     buttons: new List<PopUpButtonConfig>()
@@ -120,9 +119,9 @@ namespace EvgeniiMaklaev.PopUp
             }
         }
     }
+
     public class PopUpExamples : MonoBehaviour
     {
         // class for display inspector example buttons
     }
 }
-
