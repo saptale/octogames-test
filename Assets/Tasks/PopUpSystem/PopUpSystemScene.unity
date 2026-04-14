@@ -267,7 +267,7 @@ GameObject:
   - component: {fileID: 583066265}
   - component: {fileID: 583066266}
   m_Layer: 0
-  m_Name: PopUp Example
+  m_Name: PopUp Example -- SETUP HERE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
