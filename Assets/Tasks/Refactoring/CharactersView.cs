@@ -55,11 +55,8 @@ namespace EvgeniiMaklaev.Refactoring
         {
             float totalValue = 0f;
 
-            foreach (Character characterTransform in _characters)
+            foreach (Character character in _characters)
             {
-                // 4. Logical mistake: we need component (Character), not components (Character[])
-                // WAS: Character character = characterTransform.gameObject.GetComponents<Character>()
-                Character character = characterTransform.gameObject.GetComponent<Character>();
                 totalValue += character != null ? character.Value : 0f;
             }
 

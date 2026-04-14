@@ -1,7 +1,10 @@
 
 using System.Collections.Generic;
-using System.Linq;
+
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
+
 using UnityEngine;
 
 namespace EvgeniiMaklaev.StateLogic
@@ -28,6 +31,7 @@ namespace EvgeniiMaklaev.StateLogic
         }
     }
 
+#if UNITY_EDITOR
     public class EntityEditor : Editor
     {
         [MenuItem("Tools/State Logic/Entity")]
@@ -37,4 +41,5 @@ namespace EvgeniiMaklaev.StateLogic
                 Debug.Log(entity.name);
         }
     }
+#endif
 }
